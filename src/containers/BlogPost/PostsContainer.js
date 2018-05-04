@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import firebase from "../../firebase";
 
-import PostsList from "../../components/Posts/PostsList";
+import PostsList from "./PostsList";
 
 const firstFifteenPosts = posts => {
   return posts.slice(0, 15);

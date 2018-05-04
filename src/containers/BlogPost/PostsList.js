@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {Link} from "react-router-dom";
 
-import PostItem from "./PostItem";
+import PostItem from "../../components/Posts/PostItem";
 
 const stripString = string => {
   return string.length > 150 ? string.substring(0, 150) + "..." : string;
@@ -22,14 +22,14 @@ class PostsList extends Component {
       filteredPosts: []
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     return {...prevState, filteredPosts: nextProps.posts};
   }
 
-  handleChange(e) {
+  handleFilter(e) {
     let filteredPosts;
     switch (e.target.value) {
       case "active": {
@@ -57,7 +57,7 @@ class PostsList extends Component {
         {recent ? (
           <div>
             <h3>Filter by:</h3>
-            <select selected={this.state.selected} onChange={this.handleChange}>
+            <select selected={this.state.selected} onChange={this.handleFilter}>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="all">All</option>
