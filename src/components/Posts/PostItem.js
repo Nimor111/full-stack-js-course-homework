@@ -17,8 +17,9 @@ const PostItem = ({post, strippedText}) => {
   );
 };
 
-PostItem.defaultProps = {};
-
-PostItem.propTypes = {};
+PostItem.propTypes = {
+  post: PropTypes.object.isRequired,
+  strippedText: PropTypes.string
+};
 
 export default PostItem;

@@ -10,6 +10,10 @@ const stripString = string => {
 };
 
 class PostsList extends Component {
+  static propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object)
+  };
+
   constructor(props) {
     super(props);
 
@@ -90,9 +94,5 @@ class PostsList extends Component {
     );
   }
 }
-
-PostsList.defaultProps = {};
-
-PostsList.propTypes = {};
 
 export default PostsList;

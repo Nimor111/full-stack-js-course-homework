@@ -5,6 +5,10 @@ import firebase from "../../firebase";
 
 import PostsList from "../../components/Posts/PostsList";
 
+const firstFifteenPosts = posts => {
+  return posts.slice(0, 15);
+};
+
 class PostsContainer extends Component {
   static propTypes = {
     children: PropTypes.node,
@@ -57,7 +61,10 @@ class PostsContainer extends Component {
     return (
       <div>
         {this.props.recent ? (
-          <PostsList posts={this.state.posts} recent={this.props.recent} />
+          <PostsList
+            posts={firstFifteenPosts(this.state.posts)}
+            recent={this.props.recent}
+          />
         ) : (
           <PostsList posts={this.state.posts} removePost={this.removePost} />
         )}

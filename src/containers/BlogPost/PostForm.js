@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import PropTypes from "prop-types";
 
 import firebase from "../../firebase";
+import BaseForm from "../../components/Form/BaseForm";
 
 class PostForm extends Component {
   static propTypes = {};
@@ -47,100 +47,19 @@ class PostForm extends Component {
 
     itemsRef.push(item);
 
-    this.setState({
-      title: "",
-      author: "",
-      date: "",
-      text: "",
-      tags: "",
-      imageUrl: "",
-      status: true
-    });
+    this.props.history.push("/all-posts");
   }
 
   render() {
     return (
-      <div>
-        <header>
-          <div className="wrapper">
-            <h1>Add new post</h1>
-          </div>
-        </header>
-        <div className="container">
-          <section className="add-item">
-            <form onSubmit={this.handleSubmit}>
-              <label>Title</label>
-              <br />
-              <input
-                type="text"
-                name="title"
-                placeholder="Post title"
-                onChange={this.handleChange}
-                value={this.state.title}
-              />
-              <br />
-              <label>Author</label>
-              <br />
-              <input
-                type="text"
-                name="author"
-                placeholder="Post author"
-                onChange={this.handleChange}
-                value={this.state.author}
-              />
-              <br />
-              <label>Text</label>
-              <br />
-              <textarea
-                name="text"
-                value={this.state.text}
-                onChange={this.handleChange}
-                placeholder="Enter text here..."
-              />
-              <br />
-              <label>Date</label>
-              <br />
-              <input
-                type="date"
-                name="date"
-                value={this.state.date}
-                onChange={this.handleChange}
-                placeholder="Date..."
-              />
-              <br />
-              <label>Image URL</label>
-              <br />
-              <input
-                type="text"
-                name="imageUrl"
-                value={this.state.imageUrl}
-                onChange={this.handleChange}
-                placeholder="Image..."
-              />
-              <br />
-              <label>Status</label>
-              <br />
-              <input
-                type="checkbox"
-                name="status"
-                checked={this.state.status}
-                onChange={this.handleStatusChange}
-              />
-              <br />
-              <label>Tags</label>
-              <br />
-              <input
-                type="text"
-                name="tags"
-                checked={this.state.tags}
-                onChange={this.handleChange}
-              />
-              <br />
-              <button type="submit">Add Item</button>
-            </form>
-          </section>
-        </div>
-      </div>
+      <BaseForm
+        handleStatusChange={this.handleStatusChange}
+        handleChange={this.handleChange}
+        formState={this.state}
+        title="Add post"
+        handleSubmit={this.handleSubmit}
+        actionText="Add"
+      />
     );
   }
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import {NavLink} from "react-router-dom";
 
@@ -20,9 +19,5 @@ const Dashboard = props => {
     </div>
   );
 };
-
-Dashboard.defaultProps = {};
-
-Dashboard.propTypes = {};
 
 export default Dashboard;
