@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
+import {Link} from "react-router-dom";
+
 import PostItem from "./PostItem";
 
 const stripString = string => {
@@ -63,9 +65,14 @@ class PostsList extends Component {
           return (
             <div key={post.id}>
               {removePost ? (
-                <button type="button" onClick={() => removePost(post.id)}>
-                  Remove post
-                </button>
+                <div>
+                  <button type="button" onClick={() => removePost(post.id)}>
+                    Remove post
+                  </button>
+                  <button type="button">
+                    <Link to={`/update-post/${post.id}`}>Update post</Link>
+                  </button>
+                </div>
               ) : null}
 
               {recent ? (

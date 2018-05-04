@@ -8,7 +8,8 @@ import PostsList from "../../components/Posts/PostsList";
 class PostsContainer extends Component {
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    recent: PropTypes.bool
   };
 
   constructor(props) {
