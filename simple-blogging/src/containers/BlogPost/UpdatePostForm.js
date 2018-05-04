@@ -1,10 +1,14 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 import firebase from "../../firebase";
 import BaseForm from "../../components/Form/BaseForm";
 
 class UpdatePostForm extends Component {
-  static propTypes = {};
+  static propTypes = {
+    history: PropTypes.object,
+    match: PropTypes.object
+  };
 
   constructor(props) {
     super(props);

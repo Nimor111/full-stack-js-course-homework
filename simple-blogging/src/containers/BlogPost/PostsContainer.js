@@ -40,17 +40,19 @@ class PostsContainer extends Component {
       const posts = snapshot.val();
       const newState = [];
 
-      for (let post in posts) {
-        newState.push({
-          id: post,
-          title: posts[post].title,
-          author: posts[post].author,
-          date: posts[post].date,
-          text: posts[post].text,
-          tags: posts[post].tags,
-          imageUrl: posts[post].imageUrl,
-          status: posts[post].status
-        });
+      for (const post in posts) {
+        if (post) {
+          newState.push({
+            id: post,
+            title: posts[post].title,
+            author: posts[post].author,
+            date: posts[post].date,
+            text: posts[post].text,
+            tags: posts[post].tags,
+            imageUrl: posts[post].imageUrl,
+            status: posts[post].status
+          });
+        }
       }
 
       this.setState({posts: this.sortPosts(newState)});

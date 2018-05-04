@@ -11,7 +11,9 @@ const stripString = string => {
 
 class PostsList extends Component {
   static propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object)
+    posts: PropTypes.arrayOf(PropTypes.object),
+    recent: PropTypes.bool,
+    removePost: PropTypes.func.isRequired
   };
 
   constructor(props) {
