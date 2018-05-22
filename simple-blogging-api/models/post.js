@@ -9,13 +9,16 @@ const PostSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      trim: true
+      trim: true,
+      default: null
     },
     tags: {
-      type: [String]
+      type: [String],
+      default: []
     },
     imageUrl: {
-      type: String
+      type: String,
+      default: null
     },
     status: {
       type: String,
@@ -27,6 +30,7 @@ const PostSchema = new mongoose.Schema(
     },
     author: {
       type: String,
+      required: [true, "Author is required!"],
       trim: true
     }
   },
