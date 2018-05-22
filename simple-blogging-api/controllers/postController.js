@@ -40,7 +40,7 @@ const getPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
-    const {title, content, author, imageUrl, tags, status} = res.body;
+    const {title, content, author, imageUrl, tags, status} = req.body;
 
     const post = await Post.findByIdAndUpdate(
       req.params.postId,
